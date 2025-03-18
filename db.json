@@ -1,5 +1,37 @@
 {
-    "users": [],
-    "albums": [],
-    "photos": []
+  "users": [
+    {
+      "id": "1",
+      "name": "John Doe",
+      "email": "bkvmknf@gmdjgi.com",
+      "password": "123456",
+      "role": "admin"
+    },
+    {
+      "id": "acd1",
+      "name": "Myrtle Bogan III"
+    },
+    {
+      "id": "eaad",
+      "name": "Angela Rath"
+    },
+    {
+      "id": "f875",
+      "name": "Rachel Walker"
+    },
+    {
+      "id": "d8c1",
+      "name": "Andrew McKenzie"
+    },
+    {
+      "id": "827c",
+      "name": "Miss Sharon O'Kon"
+    },
+    {
+      "id": "50e6",
+      "name": "Casey Bartell"
+    }
+  ],
+  "albums": [],
+  "photos": []
 }
