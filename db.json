@@ -30,8 +30,28 @@
     {
       "id": "50e6",
       "name": "Casey Bartell"
+    },
+    {
+      "id": "eec9",
+      "name": "Tom Murphy-Erdman"
     }
   ],
-  "albums": [],
+  "albums": [
+    {
+      "id": 10,
+      "title": "Favor",
+      "userId": 1
+    },
+    {
+      "id": "fcb7",
+      "userId": "1",
+      "title": "Fresh Bamboo Chicken"
+    },
+    {
+      "id": "2843",
+      "userId": "1",
+      "title": "Frozen Granite Gloves"
+    }
+  ],
   "photos": []
 }
