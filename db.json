@@ -18,27 +18,11 @@
     {
       "id": "f875",
       "name": "Rachel Walker"
-    },
-    {
-      "id": "d8c1",
-      "name": "Andrew McKenzie"
-    },
-    {
-      "id": "827c",
-      "name": "Miss Sharon O'Kon"
-    },
-    {
-      "id": "50e6",
-      "name": "Casey Bartell"
-    },
-    {
-      "id": "eec9",
-      "name": "Tom Murphy-Erdman"
     }
   ],
   "albums": [
     {
-      "id": 10,
+      "id": "10",
       "title": "Favor",
       "userId": 1
     },
@@ -48,9 +32,14 @@
       "title": "Fresh Bamboo Chicken"
     },
     {
-      "id": "2843",
+      "id": "8252",
       "userId": "1",
-      "title": "Frozen Granite Gloves"
+      "title": "Soft Gold Car"
+    },
+    {
+      "id": "ba34",
+      "userId": "1",
+      "title": "Refined Rubber Towels"
     }
   ],
   "photos": []

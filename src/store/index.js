@@ -14,9 +14,10 @@ export const store = configureStore({
     }
 });
 
+
 setupListeners(store.dispatch);  //call the setupListeners function with the store.dispatch function to set up the cache invalidation and refetching logic
 
 export * from './thunks/fetchUsers';  // export all thunks from fetchUsers.js
 export * from './thunks/addUser';  // export all thunks from addUser.js
 export * from './thunks/removeUser';  // export all thunks from removeUser.js
-export { useFetchAlbumsQuery, useAddAlbumMutation } from './apis/albumsApi';  //export the useFetchAlbumsQuery hook from the albumsApi
+export { useFetchAlbumsQuery, useAddAlbumMutation, useRemoveAlbumMutation } from './apis/albumsApi';  //export the useFetchAlbumsQuery hook from the albumsApi, the useAddAlbumMutation hook from the albumsApi, and the useRemoveAlbumMutation hook from the albumsApi
