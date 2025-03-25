@@ -23,4 +23,4 @@ const pause = (duration) => {
     })
 }
 
-export { fetchUsers };
+export { fetchUsers };  //export the fetchUsers thunk action creator function

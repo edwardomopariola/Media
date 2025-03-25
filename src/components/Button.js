@@ -34,7 +34,7 @@ function Button({
   );
 
   return (
-    <button {...rest} disabled={loading} className={classes}>
+    <button type="button" {...rest} disabled={loading} className={classes}>
       {loading ? <GoSync className="anumate-spin" /> : children}  
     </button>
   );

@@ -14,18 +14,18 @@ const albumsApi = createApi({   //create an albumsApi using the createApi functi
     baseQuery: fetchBaseQuery({ 
         baseUrl: 'http://localhost:3005',  //set the baseQuery option to fetchBaseQuery({ baseUrl: 'http://localhost:3005' }) to configure the base query function to use the specified base URL
         //REMOVE FOR PRODUCTION
-        fetchFn: async (...args) => {  
+        fetchFn: async (...args) => {  //set the fetchFn option to an async function that takes the arguments and returns the fetch function with the arguments
             await pause (1000);
-            return fetch(...args);  //set the fetchFn option to an async function that takes the arguments and returns the fetch function with the arguments
+            return fetch(...args);  
         }
     }),
     endpoints(builder) {   //add an endpoints option that takes a builder argument
         return {
             removeAlbum: builder.mutation({  //add a removeAlbum endpoint using the builder.mutation method that takes a function as an argument that returns an object with a query property
-                invalidatesTags: (result, error, album) => {
-                    return [{ type: 'Album', id: album.userId }];  //set the invalidatesTags option to ['Album'] to invalidate the result, arg, and select state for the endpoint
+                invalidatesTags: (result, error, album) => {  //set the invalidatesTags option to a function that takes a result, error, and album argument
+                    return [{ type: 'Album', id: album.Id }];  //return an array with an object that has a type of 'Album' and an id of album.id to invalidate the result, arg, and select state for the endpoint
                 },
-                query: (album) => {
+                query: (album) => {   //set the query property to a function that takes an album argument and return an object with a URL path and method
                     return {
                         url: `/albums/${album.id}`,  //set the URL path to remove an album with the specified album.id
                         method: 'DELETE',  //set the method option to 'DELETE' to make a DELETE request
@@ -34,7 +34,7 @@ const albumsApi = createApi({   //create an albumsApi using the createApi functi
             }),
             addAlbum: builder.mutation({  //add an addAlbum endpoint using the builder.mutation method that takes a function as an argument that returns an object with a query property'
                 invalidatesTags: (resuilt, error, user) => {
-                    return [{ type: 'Album', id: user.id }];  //set the invalidatesTags option to ['Album'] to invalidate the result, arg, and select state for the endpoint
+                    return [{ type: 'UsersAlbum', id: user.id }];  //set the invalidatesTags option to ['Album'] to invalidate the result, arg, and select state for the endpoint
                 },
                 query: (user) => {  //set the query property to a function that takes an album argument
                     return {
@@ -50,7 +50,11 @@ const albumsApi = createApi({   //create an albumsApi using the createApi functi
 
             fetchAlbums: builder.query({   //add a fetchAlbums endpoint using the builder.query method that takes a function as an argument that returns an object with a query property
                 providesTags: (result, error, user) => {
-                    return [{ type: 'Album', id: user.id }];  //set the providesTags option to ['Album'] to provide a result, arg, and select state for the endpoint
+                    const tags = result.map(album => {
+                        return { type: 'Album', id: album.id };  //set the providesTags option to ['Album'] to provide a result, arg, and select state for the endpoint
+                    });
+                    tags.push({ type: 'UsersAlbums', id: user.id });  //push an object with a type of 'UsersAlbums' and an id of user.id to the tags array and return the tags array
+                    return tags;
                 }, 
                 query: (user) => {  //set the query property to a function that takes a user argument
                     return {

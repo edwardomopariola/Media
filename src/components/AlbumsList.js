@@ -5,7 +5,7 @@ import Button from "./Button";
 import AlbumsListItem from './AlbumsListItem';
 
 function AlbumsList({ user }) {   //create an AlbumsList component that takes a user prop as an argument and renders a list of albums for the user
-    const { data, error, isLoading } =  useFetchAlbumsQuery(user);  //use the useFetchAlbumsQuery hook to fetch the albums for the user
+    const { data, error, isFetching } =  useFetchAlbumsQuery(user);  //use the useFetchAlbumsQuery hook to fetch the albums for the user
     const [addAlbum, results] = useAddAlbumMutation();   //use the useAddAlbumMutation hook to add an album for the user
 
     const handleAddAlbum = () => {   //create a handleAddAlbum function that calls the addAlbum function with the user as an argument
@@ -13,7 +13,7 @@ function AlbumsList({ user }) {   //create an AlbumsList component that takes a 
     };
 
     let content;  //create a content variable to store the content to be rendered
-    if (isLoading) {   //check if the data is loading
+    if (isFetching) {   //isFetching is a boolean value that indicates whether the query is currently fetching data from the server
         content = <Skeleton className="h-10 w-full" times={4} />;   //if loading, render a Skeleton component with 4 items
     } else if (error) {   //check if there is an error
         content = <div>Error loading albulms</div>;
